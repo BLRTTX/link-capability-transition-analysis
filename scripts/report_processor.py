@@ -225,62 +225,6 @@ class ReportProcessor:
         lines.insert(insert_pos, '\n' + summary)
         
         return '\n'.join(lines)
-    
-    def generate_html_report(self, report_content: str) -> str:
-        """
-        将Markdown报告转换为HTML格式
-        
-        Args:
-            report_content: Markdown格式的报告
-        
-        Returns:
-            HTML格式的报告
-        """
-        # 简单的Markdown到HTML转换
-        html_lines = ['<!DOCTYPE html>', '<html lang="zh-CN">', '<head>',
-                     '<meta charset="UTF-8">', '<title>新老链路对比分析报告</title>',
-                     '<style>',
-                     'body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; }',
-                     'table { border-collapse: collapse; width: 100%; margin: 20px 0; }',
-                     'th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }',
-                     'th { background-color: #4CAF50; color: white; }',
-                     'tr:nth-child(even) { background-color: #f2f2f2; }',
-                     'h1 { color: #333; }', 'h2 { color: #666; border-bottom: 2px solid #ddd; }',
-                     'h3 { color: #888; }', 'code { background-color: #f4f4f4; padding: 2px 6px; }',
-                     '</style>', '</head>', '<body>']
-        
-        # 处理Markdown内容
-        for line in report_content.split('\n'):
-            # 标题
-            if line.startswith('# '):
-                html_lines.append(f'<h1>{line[2:]}</h1>')
-            elif line.startswith('## '):
-                html_lines.append(f'<h2>{line[3:]}</h2>')
-            elif line.startswith('### '):
-                html_lines.append(f'<h3>{line[4:]}</h3>')
-            # 表格
-            elif '|' in line and '---' in line:
-                continue  # 跳过分隔行
-            elif '|' in line:
-                cells = [cell.strip() for cell in line.split('|')[1:-1]]
-                if any('th' in l for l in html_lines[-3:]):
-                    # 这是表头
-                    html_lines.append('<tr>' + ''.join(f'<th>{cell}</th>' for cell in cells) + '</tr>')
-                else:
-                    # 这是表格行
-                    html_lines.append('<tr>' + ''.join(f'<td>{cell}</td>' for cell in cells) + '</tr>')
-            # 列表
-            elif line.startswith('- '):
-                html_lines.append(f'<li>{line[2:]}</li>')
-            # 段落
-            elif line.strip():
-                html_lines.append(f'<p>{line}</p>')
-            else:
-                html_lines.append('')
-        
-        html_lines.extend(['</body>', '</html>'])
-        
-        return '\n'.join(html_lines)
 
 
 def main():
@@ -316,11 +260,6 @@ def main():
         "--summary",
         action="store_true",
         help="为报告添加摘要章节"
-    )
-    parser.add_argument(
-        "--html",
-        action="store_true",
-        help="将Markdown报告转换为HTML格式"
     )
     
     args = parser.parse_args()
@@ -370,13 +309,6 @@ def main():
     # 添加摘要
     if args.summary:
         result = processor.add_summary(result)
-    
-    # 转换为HTML
-    if args.html:
-        result = processor.generate_html_report(result)
-        # 如果没有指定输出文件,自动添加.html后缀
-        if not args.output:
-            args.output = args.input.rsplit('.', 1)[0] + '.html'
     
     # 输出结果
     if args.output:

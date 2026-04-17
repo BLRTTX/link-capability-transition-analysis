@@ -8,7 +8,6 @@
 - **格式化优化**: 优化报告结构和排版
 - **添加目录**: 自动生成报告目录
 - **添加摘要**: 自动提取关键信息生成摘要
-- **HTML转换**: 将Markdown报告转换为HTML格式
 
 ## 前置要求
 
@@ -60,13 +59,6 @@ python3 scripts/report_processor.py report.md --toc --output report_with_toc.md
 python3 scripts/report_processor.py report.md --summary --output report_with_summary.md
 ```
 
-### 转换为HTML
-
-```bash
-# 将Markdown报告转换为HTML格式
-python3 scripts/report_processor.py report.md --html --output report.html
-```
-
 ### 综合处理
 
 ```bash
@@ -89,7 +81,6 @@ python3 scripts/report_processor.py report.md \
 | --format | 格式化报告,优化结构和排版 | 否 | False |
 | --toc | 为报告添加目录 | 否 | False |
 | --summary | 为报告添加摘要章节 | 否 | False |
-| --html | 将Markdown报告转换为HTML格式 | 否 | False |
 
 ## 验证内容
 
@@ -126,15 +117,6 @@ python3 scripts/report_processor.py report.md \
 - 兼容性结论
 - 关键发现总结
 
-## HTML转换
-
-生成的HTML报告包含:
-
-- 响应式布局
-- 表格样式美化
-- 标题样式优化
-- 代码高亮支持
-
 ## 使用场景
 
 ### 场景1: 验证Agent生成的报告
@@ -155,19 +137,7 @@ python3 scripts/report_processor.py analysis_report.md \
   --output optimized_report.md
 ```
 
-### 场景3: 生成可分享的HTML报告
-
-```bash
-# 完整处理后转换为HTML
-python3 scripts/report_processor.py analysis_report.md \
-  --format \
-  --toc \
-  --summary \
-  --html \
-  --output final_report.html
-```
-
-### 场景4: 批量处理多个报告
+### 场景3: 批量处理多个报告
 
 ```bash
 # 使用shell脚本批量处理
@@ -227,14 +197,13 @@ done
 
 1. 输入文件必须是Markdown格式
 2. 验证功能仅检查报告的完整性,不检查内容的正确性
-3. HTML转换为简单转换,不支持复杂的Markdown特性
-4. 建议先生成报告,然后使用此工具进行后处理
+3. 建议先生成报告,然后使用此工具进行后处理
 
 ## 与Agent协作
 
 这个工具的设计目的是与Agent协作:
 
-1. **Agent生成报告** - Agent使用语雀Skill读取文档并生成对比分析报告
+1. **Agent生成报告** - Agent使用语雀MCP读取文档并生成对比分析报告
 2. **工具后处理** - 使用本工具对报告进行验证、格式化、优化
 3. **最终输出** - 得到完整、规范、易读的分析报告
 

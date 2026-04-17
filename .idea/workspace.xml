@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fd7dc25a-aa8b-4ee4-b6e3-8445bf6c0c70" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="fd7dc25a-aa8b-4ee4-b6e3-8445bf6c0c70" name="更改" comment="init">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SKILL.md" beforeDir="false" afterPath="$PROJECT_DIR$/SKILL.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/report_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/report_processor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +29,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "CODEINSIGHT_PRECOMMIT_ANALYSIS": "false",
     "CodeFuse_applyCachedRules.once.-1993977856": "1",
     "LINKC_FILTER_ACTION": "all",
     "LINKC_GROUP_BY_USER_ACTION": "ALL",
@@ -54,6 +59,19 @@
       <option name="presentableId" value="Default" />
       <updated>1776424238324</updated>
     </task>
+    <task id="LOCAL-00001" summary="init">
+      <option name="closed" value="true" />
+      <created>1776432979512</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1776432979512</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
 </project>
